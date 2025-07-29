@@ -46,14 +46,8 @@
  
       if (os === "Android") {
         window.location.href = androidDeepLink;
-        setTimeout(() => {
-          window.location.href = fallbackUrl;
-        }, 2000);
       } else if (os === "iOS") {
         window.location.href = iosDeepLink;
-        setTimeout(() => {
-          window.location.href = fallbackUrl;
-        }, 2000);
       } 
     }
   </script>
