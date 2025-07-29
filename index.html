@@ -43,7 +43,6 @@
       const os = getMobileOperatingSystem();
       const androidDeepLink = "go.itserve.org://home";
       const iosDeepLink = "go.itserve.org://home";
-      const fallbackUrl = "https://yourwebsite.com/download";
  
       if (os === "Android") {
         window.location.href = androidDeepLink;
@@ -55,10 +54,7 @@
         setTimeout(() => {
           window.location.href = fallbackUrl;
         }, 2000);
-      } else {
-        // Desktop fallback
-        window.open(fallbackUrl, "_blank");
-      }
+      } 
     }
   </script>
 </body>
