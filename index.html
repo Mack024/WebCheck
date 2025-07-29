@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open My App</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f3f3f3;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007aff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fcb;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="openApp()">Open My App</button>
+ 
+  <script>
+    function getMobileOperatingSystem() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+ 
+      if (/android/i.test(userAgent)) return "Android";
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) return "iOS";
+      return "unknown";
+    }
+ 
+    function openApp() {
+      const os = getMobileOperatingSystem();
+      const androidDeepLink = "go.itserve.org://home";
+      const iosDeepLink = "go.itserve.org://home";
+      const fallbackUrl = "https://yourwebsite.com/download";
+ 
+      if (os === "Android") {
+        window.location.href = androidDeepLink;
+        setTimeout(() => {
+          window.location.href = fallbackUrl;
+        }, 2000);
+      } else if (os === "iOS") {
+        window.location.href = iosDeepLink;
+        setTimeout(() => {
+          window.location.href = fallbackUrl;
+        }, 2000);
+      } else {
+        // Desktop fallback
+        window.open(fallbackUrl, "_blank");
+      }
+    }
+  </script>
+</body>
+</html>
+ 
+ 
